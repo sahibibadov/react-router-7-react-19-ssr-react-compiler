@@ -3,6 +3,11 @@ import autoprefixer from "autoprefixer";
 import tailwindcss from "tailwindcss";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import babel from "vite-plugin-babel";
+
+const ReactCompilerConfig = {
+  /* ... */
+};
 
 export default defineConfig(({ isSsrBuild, command }) => ({
   build: {
@@ -20,5 +25,16 @@ export default defineConfig(({ isSsrBuild, command }) => ({
   ssr: {
     noExternal: command === "build" ? true : undefined,
   },
-  plugins: [reactRouter(), tsconfigPaths()],
+  plugins: [
+    reactRouter(),
+    tsconfigPaths(),
+    babel({
+      filter: /\.[jt]sx?$/,
+      babelConfig: {
+        presets: ["@babel/preset-typescript"], // if you use TypeScript
+        plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]], //react-compiler plugin
+        compact: true,
+      },
+    }),
+  ],
 }));

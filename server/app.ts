@@ -5,10 +5,19 @@ import "react-router";
 declare module "react-router" {
   export interface AppLoadContext {
     VALUE_FROM_VERCEL: string;
+    getPostsServer: typeof getPostsServer;
   }
 }
 
 const app = express();
+
+const getPostsServer = async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  if (!response.ok) {
+    throw new Error("Failed to fetch posts");
+  }
+  return await response.json();
+};
 
 app.use(
   createRequestHandler({
@@ -17,9 +26,10 @@ app.use(
     getLoadContext() {
       return {
         VALUE_FROM_VERCEL: "Hello from Vercel",
+        getPostsServer,
       };
     },
-  })
+  }),
 );
 
 export default app;
