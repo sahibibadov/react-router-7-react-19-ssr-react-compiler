@@ -1,6 +1,7 @@
 import { useState, version } from "react";
 import type { Route } from "./+types/home";
 import Rich from "~/components/rich-components";
+import { Button } from "~/components/ui/button";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -13,12 +14,24 @@ export default function Home() {
   const [count, setCount] = useState(0);
   return (
     <div className="mt-10">
-      <h1 className="text-5xl font-bold text-center mb-3">
+      <h1 className="text-5xl font-bold text-center mb-10">
         React{version} & React-Router-v7 & SSR rendering & React-Compile
       </h1>
-      <button className="px-2 py-1 bg-blue-200 rounded" onClick={() => setCount((count) => count + 1)}>
+      <Button className="mx-auto flex" onClick={() => setCount((count) => count + 1)}>
         count is: {count}
-      </button>
+      </Button>
+      <pre>
+        {"react scan enable => root-layout.tsx"}
+        <br />
+        <code>
+          {`if (typeof window !== "undefined") {
+  scan({
+    enabled: true, // react-scan
+    log: false,
+  });
+}`}
+        </code>
+      </pre>
       {/* Rich component */}
       <Rich />
     </div>

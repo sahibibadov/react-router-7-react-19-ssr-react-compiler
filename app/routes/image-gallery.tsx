@@ -13,10 +13,15 @@ export const images = [
 export default function ImageGalleryRoute() {
   return (
     <div className="mt-5">
-      <h1 className="mb-4 text-3xl font-bold">Image List</h1>
+      <h1 className="mb-5 text-3xl font-bold">Image List</h1>
       <div className="grid grid-cols-3 gap-5">
         {images.map((src, idx) => (
-          <NavLink key={idx} to={`/image/${idx}`} viewTransition className="border rounded aspect-video">
+          <NavLink
+            key={idx}
+            to={`/image/${idx}`}
+            viewTransition
+            className="border rounded aspect-video hover:shadow-md"
+          >
             {({ isTransitioning }) => (
               <>
                 <h4

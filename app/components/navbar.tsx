@@ -25,8 +25,10 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <li key={link.name}>
               <NavLink
+                prefetch="intent"
                 className={({ isActive }) => (isActive ? "text-gray-700 font-bold" : "text-gray-400")}
                 to={link.to}
+                viewTransition
               >
                 {link.name}
               </NavLink>
