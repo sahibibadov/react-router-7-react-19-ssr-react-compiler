@@ -8,14 +8,14 @@ export default function ImageDetailsRoute({ params }: Route.ComponentProps) {
       <Link to="/image" viewTransition className="text-blue-500 hover:underline">
         Back
       </Link>
-      <h1
+      <h2
         className="text-3xl font-bold"
         style={{
           viewTransitionName: "image-title",
         }}
       >
         Image Number {params.id}
-      </h1>
+      </h2>
       <img
         style={{
           viewTransitionName: "image-expand",

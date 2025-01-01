@@ -13,7 +13,7 @@ const RootLayout = () => {
   return (
     <Provider>
       <Navbar />
-      <main className="container mx-auto">
+      <main className="container mx-auto px-2 sm:px-0">
         <Outlet />
       </main>
     </Provider>

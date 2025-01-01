@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+
 export const getData = async () => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);

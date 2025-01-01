@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import type { Route } from "./+types/image-gallery";
 export function meta({}: Route.MetaArgs) {
   return [{ title: "Image Gallery" }, { name: "description", content: "Image Gallery" }];
@@ -14,7 +14,7 @@ export default function ImageGalleryRoute() {
   return (
     <div className="mt-5">
       <h1 className="mb-5 text-3xl font-bold">Image List</h1>
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {images.map((src, idx) => (
           <NavLink
             key={idx}
@@ -34,6 +34,7 @@ export default function ImageGalleryRoute() {
                 </h4>
                 <img
                   src={src}
+                  loading="lazy"
                   className="block object-cover w-full h-full max-w-full"
                   style={{
                     viewTransitionName: isTransitioning ? "image-expand" : "none",

@@ -14,11 +14,11 @@
 }
 
 ::view-transition-old(root) {
-  animation: slide-out 0.5s ease forwards;
+  animation: slide-out 0.3s ease forwards;
 }
 
 ::view-transition-new(root) {
-  animation: slide-in 0.5s ease forwards;
+  animation: slide-in 0.3s ease forwards;
 }
 @keyframes slide-in {
   from {
