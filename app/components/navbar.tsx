@@ -25,7 +25,7 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b">
-      <nav className="container mx-auto px-2 sm:px-0">
+      <nav className="max-w-[1200px] mx-auto px-2 sm:px-0">
         <div className="flex items-center justify-between h-16">
           <Link to="/" viewTransition className="text-2xl font-bold">
             Logo
@@ -36,7 +36,7 @@ const Navbar = () => {
             <div className="w-6 h-5 relative flex flex-col justify-between">
               <span
                 className={`w-full h-0.5 bg-gray-600 transition-all duration-300 ${
-                  isOpen ? "rotate-45 translate-y-2" : ""
+                  isOpen ? "rotate-45 translate-y-[10px]" : ""
                 }`}
               />
               <span className={`w-full h-0.5 bg-gray-600 transition-all duration-300 ${isOpen ? "opacity-0" : ""}`} />

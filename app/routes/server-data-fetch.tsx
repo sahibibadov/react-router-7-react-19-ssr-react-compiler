@@ -1,4 +1,3 @@
-// import { getData } from "~/services/useGetData";
 import type { Route } from "./+types/server-data-fetch";
 import { PostCard } from "~/components/post-card";
 
@@ -11,11 +10,6 @@ export async function loader({ context }: Route.LoaderArgs) {
   };
 }
 
-// client fetch
-// export async function clientLoader() {
-// const posts = await getData();
-//   return { posts };
-// }
 const ServerFetch = ({ loaderData }: Route.ComponentProps) => {
   const { posts } = loaderData;
 

@@ -2,6 +2,7 @@ import type { Route } from "./+types/client-data-fetch";
 import { useGetData } from "~/services/useGetData";
 import { PostSkeleton } from "~/components/post-skeleton";
 import { PostCard } from "~/components/post-card";
+import { getData } from "~/services/useGetData";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -10,7 +11,25 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
+// client fetch
+// export async function clientLoader() {
+//   const posts = await getData();
+//   return { posts };
+// }
+
+// client loading
+// export function HydrateFallback() {
+//   return (
+//     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+//       {[...Array(9)].map((_, index) => (
+//         <PostSkeleton key={index} />
+//       ))}
+//     </div>
+//   );
+// }
+
 const ClientFetch = () => {
+  //tanstack-query
   const { data, isLoading, error } = useGetData();
 
   return (

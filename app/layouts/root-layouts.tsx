@@ -1,7 +1,6 @@
 import { Outlet } from "react-router";
 import { scan } from "react-scan";
 import Navbar from "~/components/navbar";
-import Provider from "~/components/provider";
 // react-scan
 // if (typeof window !== "undefined") {
 //   scan({
@@ -11,12 +10,12 @@ import Provider from "~/components/provider";
 // }
 const RootLayout = () => {
   return (
-    <Provider>
+    <>
       <Navbar />
-      <main className="container mx-auto px-2 sm:px-0">
+      <main className="max-w-[1200px] mx-auto px-2 sm:px-0">
         <Outlet />
       </main>
-    </Provider>
+    </>
   );
 };
 

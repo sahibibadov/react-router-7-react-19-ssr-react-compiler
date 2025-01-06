@@ -14,12 +14,10 @@ export default function Home() {
   const [count, setCount] = useState(0);
   return (
     <div className="mt-10">
-      <h1 className="text-3xl sm:text-5xl font-bold text-center mb-10">
+      <h1 className="text-3xl text-balance sm:text-7xl font-bold text-center mb-10 max-w-4xl mx-auto bg-gradient-to-b from-zinc-500 to-zinc-400 text-transparent bg-clip-text">
         React{version} & React-Router-v7 & SSR rendering & React-Compiler
       </h1>
-      <Button className="mx-auto flex mb-2" onClick={() => setCount((count) => count + 1)}>
-        count is: {count}
-      </Button>
+
       <pre className="mb-2 border rounded-md p-2 bg-gray-100 text-gray-500 text-sm sm:text-base">
         {"react scan enable => root-layout.tsx"}
         <br />
@@ -32,6 +30,13 @@ export default function Home() {
 }`}
         </code>
       </pre>
+      <Button
+        variant="outline"
+        className="mx-auto flex my-6  active:scale-95 transition-all"
+        onClick={() => setCount((count) => count + 1)}
+      >
+        count is: {count}
+      </Button>
       {/* Rich component */}
       <Rich />
     </div>
