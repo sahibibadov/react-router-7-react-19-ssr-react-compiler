@@ -1,4 +1,5 @@
 import { Button } from "./ui/button";
+import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from "./ui/card";
 
 interface Post {
   id: number;
@@ -12,13 +13,17 @@ interface PostCardProps {
 
 export const PostCard = ({ post }: PostCardProps) => {
   return (
-    <div className="bg-white border rounded-lg shadow-md p-4 hover:shadow-lg transition-all duration-300">
-      <h4 className="text-xl font-semibold mb-2 truncate">{post.title}</h4>
-      <p className="text-gray-600 line-clamp-3">{post.body}</p>
-      <div className="mt-4 flex justify-between items-center">
-        <span className="text-sm text-gray-500">Post ID: {post.id}</span>
-        <Button variant="link">Read More</Button>
-      </div>
-    </div>
+    <Card className="hover:shadow-lg transition-shadow duration-300">
+      <CardHeader>
+        <CardTitle className="text-xl truncate">{post.title}</CardTitle>
+        <CardDescription className="line-clamp-3">{post.body}</CardDescription>
+      </CardHeader>
+      <CardFooter>
+        <div className="flex justify-between items-center w-full">
+          <CardDescription>Post ID: {post.id}</CardDescription>
+          <Button variant="link">Read More</Button>
+        </div>
+      </CardFooter>
+    </Card>
   );
 };
