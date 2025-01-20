@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { images } from "./image-gallery";
+import { images } from "../image-gallery";
 import type { Route } from "./+types/image-detail";
 
 export default function ImageDetailsRoute({ params }: Route.ComponentProps) {
