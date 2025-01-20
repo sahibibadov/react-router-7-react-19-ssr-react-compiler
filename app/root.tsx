@@ -1,7 +1,8 @@
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import type { Route } from "./+types/root";
 import stylesheet from "./app.css?url";
-import Provider from "~/components/provider";
+import TanstackProvider from "~/providers/tanstack-provider";
+import { ThemeProvider } from "~/providers/theme-provider";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -19,21 +20,23 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <Provider>
-          {children}
-          <ScrollRestoration />
-          <Scripts />
-        </Provider>
-      </body>
-    </html>
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <TanstackProvider>
+        <html lang="en">
+          <head>
+            <meta charSet="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <Meta />
+            <Links />
+          </head>
+          <body>
+            {children}
+            <ScrollRestoration />
+            <Scripts />
+          </body>
+        </html>
+      </TanstackProvider>
+    </ThemeProvider>
   );
 }
 

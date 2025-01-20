@@ -25,7 +25,7 @@ export default function ImageGalleryRoute() {
             {({ isTransitioning }) => (
               <>
                 <h4
-                  className="p-3 text-xl font-bold text-gray-600"
+                  className="p-3 text-xl font-bold "
                   style={{
                     viewTransitionName: isTransitioning ? "image-title" : "none",
                   }}
