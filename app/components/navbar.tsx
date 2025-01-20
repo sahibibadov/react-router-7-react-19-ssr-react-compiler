@@ -63,7 +63,7 @@ const Navbar = () => {
               <div className="flex items-center gap-2">
                 <Button size="icon" variant="outline" asChild className="rounded-full">
                   <Link
-                    to="https://github.com/sahibibadov/react-router-7-react-19-ssr-react-compiler/tree/main"
+                    to="https://github.com/sahibibadov/react-router-7-react-19-ssr-react-compiler"
                     target="_blank"
                   >
                     <Github />
